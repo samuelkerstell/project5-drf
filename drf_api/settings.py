@@ -67,7 +67,7 @@ ALLOWED_HOSTS = [
     'localhost', 
     '8000-samuelkerst-project5drf-y56ppogm9tb.ws-eu106.gitpod.io', 
     os.environ.get('ALLOWED_HOST'), 
-    'https://project-portfolio-5-sam.herokuapp.com',
+    'https://project-portfolio-5-sam-7342558136fc.herokuapp.com',
 ]
 
 
