@@ -7,15 +7,12 @@ Golf Shot is a social media website where golfers all over the world can share t
 The primary goal of this project is to develop a user-friendly web application that allows image sharing among users. The platform aims to create a golf community where golfers can upload their images and interact through likes and comments on those images shared by others.
 
 
-
 ## Table of contents
 - [Golf Shot](#golf-shot)
   * [Project goals](#project-goals)
   * [Table of contents](#table-of-contents)
   * [Planning](#planning)
     + [Data models](#data-models)
-      - [**Profile**](#--profile--)
-  * [API endpoints](#api-endpoints)
   * [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
     + [django-cloudinary-storage](#django-cloudinary-storage)
     + [dj-allauth](#dj-allauth)
@@ -63,7 +60,7 @@ Custom models implemented for Golf Shot are:
 
 
 ## Frameworks, libraries and dependencies
-The TribeHub API is implemented in Python using [Django](https://www.djangoproject.com) and [Django Rest Framework](https://django-filter.readthedocs.io/en/stable/).
+The Golf Shot API is implemented in Python using [Django](https://www.djangoproject.com) and [Django Rest Framework](https://www.django-rest-framework.org).
 
 The following additional utilities, apps and modules were also used.
 
@@ -89,10 +86,6 @@ https://pypi.org/project/dj-database-url/
 
 ### psychopg2
 https://pypi.org/project/psycopg2/
-
-
-### python-dateutil
-https://pypi.org/project/python-dateutil/
 
 
 ### django-filter
@@ -181,19 +174,16 @@ https://pypi.org/project/django-cors-headers/
     
 
 ### Python validation
-
-Code errors and style issues were detected using the Pylance linter in VSCode, and immediately fixed throughout development.
-All files containing custom Python code were then validated using the [Code Institute Python Linter](https://pep8ci.herokuapp.com/):
+Errors in code were identified and fixed using the [Code Institute Python Linter](https://pep8ci.herokuapp.com/):
 
 
 ### Resolved bugs
-
 #### Bugs found while testing the API in isolation
 
 
 #### Bugs found while testing the React front-end
-dj-rest-auth/registration/ - fixed by adding trailing slash
-
+I was not able to sign up in the react app. This was because of a missing trailing slash on the "dj-rest-auth/registration/" url in drf_api > urls.py.
+This was easily fixed by adding the missing "/" at the end of the url.
 
 ## Deployment
 The Golf Shot API is deployed to Heroku, using an ElephantSQL Postgres database.
@@ -233,12 +223,24 @@ To duplicate deployment to Heroku, follow these steps:
 - Find the 'Manual Deploy' section, choose 'main' as the branch to deploy and select 'Deploy Branch'.
 - Your API will shortly be deployed and you will be given a link to the deployed site when the process is complete.
 
+To deploy locally, follow these steps:
+- Ensure Python and pip (Python package manager) are installed on your computer.
+- Make sure Git is installed to clone the repository.
+
+- Type "git clone https://github.com/samuelkerstell/project5-drf.git" in the terminal
+- Enter "cd project5-drf" to navigate to project directory
+- create an env.py file
+- Install Dependencies: "pip install -r requirements.txt"
+- Set environment variables for necessary configurations (database settings, API keys, etc.)
+- Apply Migrations: "python manage.py migrate"
+- Create Superuser (optional): "python manage.py createsuperuser"
+- Run the Development Server: "python manage.py runserver"
+
+
 ## Credits
 - [Django documentation](https://www.djangoproject.com)
 - [Django Rest Framework documentation](https://www.django-rest-framework.org)
 - [django-filter documentation](https://django-filter.readthedocs.io/en/stable/)
-- [django-recurrence documentation](https://django-recurrence.readthedocs.io/en/latest/)
 - [Python datetime documentation](https://docs.python.org/3/library/datetime.html)
-- [dateutil documentation](https://dateutil.readthedocs.io/en/stable/index.html)
 
 These official Django & Python documents were researched to get a greater understanding before pursuing this project.
