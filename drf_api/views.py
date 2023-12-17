@@ -5,10 +5,11 @@ from .settings import (
     JWT_AUTH_SECURE,
 )
 
+
 @api_view()
 def root_route(request):
-    return Response ({
-        "message": "Welcome to Project 5!"
+    return Response({
+        "message": "Welcome to Golf Shot API!"
     })
 
 

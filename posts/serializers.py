@@ -32,14 +32,14 @@ class PostSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-    
+
     def get_like_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
             like = Like.objects.filter(
                 owner=user, post=obj
             ).first()
-            #print(following)
+            # print(following)
             return like.id if like else None
         return None
 
@@ -49,7 +49,7 @@ class PostSerializer(serializers.ModelSerializer):
             dislike = Dislike.objects.filter(
                 owner=user, post=obj
             ).first()
-            #print(following)
+            # print(following)
             return dislike.id if dislike else None
         return None
 
@@ -59,5 +59,6 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
-            'like_id', 'dislike_id', 'comments_count','likes_count', 'dislikes_count'
+            'like_id', 'dislike_id', 'comments_count',
+            'likes_count', 'dislikes_count'
         ]

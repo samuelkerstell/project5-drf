@@ -12,6 +12,7 @@ class DislikeList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+
 class DislikeDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DislikeSerializer
     permission_classes = [IsOwnerOrReadOnly]
